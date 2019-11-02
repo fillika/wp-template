@@ -78,7 +78,7 @@ const imgResize = {
 };
 
 const modules = {
-  rules: [css, js, less, scss, imgLoader, imgResize]
+  rules: [css, js, less, scss, imgResize]
 };
 
 /* Plugins */
