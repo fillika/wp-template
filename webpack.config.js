@@ -13,7 +13,11 @@ const css = {
     "css-loader"
   ]
 };
-const js = { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" };
+const js = {
+  test: /\.js$/,
+  exclude: /node_modules/,
+  loader: "babel-loader"
+};
 
 const modules = {
   rules: [css, js]
@@ -50,4 +54,9 @@ const config = {
   module: modules
 };
 
-module.exports = config;
+module.exports = (env, options) => {
+  const production = options.mode === "production";
+
+  config.devtool = production ? "source-map" : "eval-sourcemap";
+  return config;
+};
