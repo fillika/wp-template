@@ -25,6 +25,16 @@ const less = {
     "less-loader"
   ]
 };
+const scss = {
+  test: /\.s[ac]ss$/i,
+  use: [
+    {
+      loader: MiniCssExtractPlugin.loader
+    },
+    "css-loader",
+    "sass-loader"
+  ]
+};
 const js = {
   test: /\.js$/,
   exclude: /node_modules/,
@@ -32,7 +42,7 @@ const js = {
 };
 
 const modules = {
-  rules: [less, css, js]
+  rules: [css, js, less, scss]
 };
 
 /* Plugins */
