@@ -46,6 +46,17 @@ const devServer = {
   overlay: true
 };
 
+/* optimization */
+
+const optimization = {
+  minimizer: [
+    new OptimizeCssAssetsPlugin({}),
+    new UglifyJsPlugin({ test: /\.js(\?.*)?$/i })
+  ]
+};
+
+/* main config */
+
 const config = {
   entry: "./src/js/bundle.js",
   output: {
@@ -53,12 +64,7 @@ const config = {
     path: path.resolve(__dirname, "./dist")
   },
   devServer: devServer,
-  optimization: {
-    minimizer: [
-      new OptimizeCssAssetsPlugin({}),
-      new UglifyJsPlugin({ test: /\.js(\?.*)?$/i })
-    ]
-  },
+  optimization: optimization,
   plugins: plugins,
   module: modules
 };
