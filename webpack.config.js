@@ -2,18 +2,19 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const modules = {
-  rules: [
+/* Modules */
+const css = {
+  test: /\.css$/, // test - проверка на расширение.
+  use: [
     {
-      test: /\.css$/, // test - проверка на расширение.
-      use: [
-        {
-          loader: MiniCssExtractPlugin.loader
-        },
-        "css-loader"
-      ]
-    }
+      loader: MiniCssExtractPlugin.loader
+    },
+    "css-loader"
   ]
+};
+
+const modules = {
+  rules: [css]
 };
 
 const plugins = [
