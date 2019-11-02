@@ -13,9 +13,10 @@ const css = {
     "css-loader"
   ]
 };
+const js = { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" };
 
 const modules = {
-  rules: [css]
+  rules: [css, js]
 };
 
 /* Plugins */
@@ -42,7 +43,7 @@ const config = {
   entry: "./src/js/index.js",
   output: {
     filename: "main.js",
-    path: path.resolve(__dirname, "dist/js")
+    path: path.resolve(__dirname, "./dist")
   },
   devServer: devServer,
   plugins: plugins,
