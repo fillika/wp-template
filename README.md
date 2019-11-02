@@ -1,5 +1,5 @@
 # wp-template
-My work WP template dor dev and prod
+My work WP template for dev and prod
 
 Команды для старта
 
