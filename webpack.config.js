@@ -41,21 +41,22 @@ const js = {
   loader: "babel-loader"
 };
 const imgLoader = {
-  test: /\.(gif|png|jpe?g|svg)$/,
+  test: /\.(png|jpg|jpeg|svg|gif)$/,
+  exclude: [/fonts/],
   loader: "file-loader",
   options: {
-    outputPath: "/img",
-    name: "[name].[ext]"
+    name: "img/[name].[ext]"
   }
 };
 
 const imgResize = {
-  test: /\.(gif|png|jpe?g|svg)$/i,
+  test: /\.(png|jpg|jpeg|svg|gif)$/i,
   use: [
-    "file-loader",
+    "file-loader?name=[name].[ext]",
     {
       loader: "image-webpack-loader",
       options: {
+        bypassOnDebug: true,
         mozjpeg: {
           progressive: true,
           quality: 65
@@ -77,7 +78,7 @@ const imgResize = {
 };
 
 const modules = {
-  rules: [css, js, less, scss, imgLoader]
+  rules: [css, js, less, scss, imgLoader, imgResize]
 };
 
 /* Plugins */
