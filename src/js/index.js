@@ -5,4 +5,4 @@ import "../css/style.css";
 
 console.log("Hello FiLLIka");
 
-$("body").css("background-color", "limegreen");
+$("body").css("background-color", "yellow");

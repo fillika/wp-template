@@ -1,6 +1,4 @@
 const path = require("path");
-const webpack = require("webpack");
-const $ = require("jquery");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
@@ -20,6 +18,8 @@ const modules = {
   rules: [css]
 };
 
+/* Plugins */
+
 const plugins = [
   new HtmlWebpackPlugin({
     template: "src/index.html"
@@ -30,12 +30,21 @@ const plugins = [
   new CleanWebpackPlugin()
 ];
 
+/* devServer */
+
+const devServer = {
+  open: true,
+  port: 8000,
+  overlay: true
+};
+
 const config = {
   entry: "./src/js/index.js",
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist/js")
   },
+  devServer: devServer,
   plugins: plugins,
   module: modules
 };
