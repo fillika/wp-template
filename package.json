@@ -1,20 +1,29 @@
 {
-  "name": "wp-dev-templaate",
+  "name": "wp-template",
   "version": "1.0.0",
-  "description": "Моя собственная сборка",
+  "description": "",
   "main": "index.js",
-  "scripts": {
-    "start": "nodemon --watch webpack.config.js --exec \"webpack-dev-server --mode development\"",
-    "build": "webpack --mode production"
-  },
-  "author": "FiLLIKa",
-  "license": "ISC",
-  "devDependencies": {
-    "html-webpack-plugin": "^3.2.0",
-    "nodemon": "^1.19.4",
+  "dependencies": {
     "path": "^0.12.7",
-    "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
-  }
+    "webpack-dev-server": "^3.9.0",
+    "y": "^0.3.2",
+    "webpack": "^4.41.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "webpack -d",
+    "build": "webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fillika/wp-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fillika/wp-template/issues"
+  },
+  "homepage": "https://github.com/fillika/wp-template#readme"
 }
