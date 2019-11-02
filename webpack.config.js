@@ -40,9 +40,44 @@ const js = {
   exclude: /node_modules/,
   loader: "babel-loader"
 };
+const imgLoader = {
+  test: /\.(gif|png|jpe?g|svg)$/,
+  loader: "file-loader",
+  options: {
+    outputPath: "/img",
+    name: "[name].[ext]"
+  }
+};
+
+const imgResize = {
+  test: /\.(gif|png|jpe?g|svg)$/i,
+  use: [
+    "file-loader",
+    {
+      loader: "image-webpack-loader",
+      options: {
+        mozjpeg: {
+          progressive: true,
+          quality: 65
+        },
+        // optipng.enabled: false will disable optipng
+        optipng: {
+          enabled: true
+        },
+        pngquant: {
+          quality: [0.65, 0.9],
+          speed: 4
+        },
+        gifsicle: {
+          interlaced: false
+        }
+      }
+    }
+  ]
+};
 
 const modules = {
-  rules: [css, js, less, scss]
+  rules: [css, js, less, scss, imgLoader]
 };
 
 /* Plugins */

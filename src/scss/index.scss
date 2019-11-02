@@ -4,4 +4,12 @@
   margin-left: 20px;
   color: $mainColor;
   font-size: $mainFontSize;
+  //background-image: url("../img/smoke.png");
+  background-repeat: no-repeat;
+}
+
+.second {
+  background-image: url("../img/smoke.png");
+  width: 500px;
+  height: 500px;
 }
