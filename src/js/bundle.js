@@ -1,5 +1,5 @@
 /* JS files */
-import "./index";
+import "./assets/index";
 
 /* Styles */
 import "../css/index.css";
