@@ -27,10 +27,11 @@ const modules = {
 
 const plugins = [
   new HtmlWebpackPlugin({
-    template: "src/index.html"
+    filename: "index.html",
+    template: "./src/index.html"
   }),
   new MiniCssExtractPlugin({
-    filename: "[name].css"
+    filename: "style.css"
   }),
   new CleanWebpackPlugin()
 ];
@@ -44,7 +45,7 @@ const devServer = {
 };
 
 const config = {
-  entry: "./src/js/index.js",
+  entry: "./src/js/bundle.js",
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "./dist")
