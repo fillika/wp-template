@@ -40,19 +40,17 @@ const js = {
   exclude: /node_modules/,
   loader: "babel-loader"
 };
+
 const imgLoader = {
   test: /\.(png|jpg|jpeg|svg|gif)$/,
-  exclude: [/fonts/],
-  loader: "file-loader",
-  options: {
-    name: "img/[name].[ext]"
-  }
-};
-
-const imgResize = {
-  test: /\.(png|jpg|jpeg|svg|gif)$/i,
   use: [
-    "file-loader?name=[name].[ext]",
+    {
+      loader: "file-loader",
+      options: {
+        name: "[name].[ext]",
+        outputPath: "img"
+      }
+    },
     {
       loader: "image-webpack-loader",
       options: {
@@ -78,7 +76,7 @@ const imgResize = {
 };
 
 const modules = {
-  rules: [css, js, less, scss, imgResize]
+  rules: [css, js, less, scss, imgLoader]
 };
 
 /* Plugins */
