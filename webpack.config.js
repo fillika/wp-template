@@ -92,16 +92,22 @@ const modules = {
 };
 
 /* Plugins */
+function createFirstPage(name) {
+  return new HtmlWebpackPlugin({
+    filename: name + ".html",
+    template: "./src/pug/" + name + ".pug"
+  });
+}
+function createNextPage(name) {
+  return new HtmlWebpackPlugin({
+    filename: "pages/" + name + ".html",
+    template: "./src/pug/pages/" + name + ".pug"
+  });
+}
 
 const plugins = [
-  new HtmlWebpackPlugin({
-    filename: "index.html",
-    template: "./src/pug/index.pug"
-  }),
-  new HtmlWebpackPlugin({
-    filename: "pages/second.html",
-    template: "./src/pug/pages/second.pug"
-  }),
+  createFirstPage("index"),
+  createNextPage("second"),
   new MiniCssExtractPlugin({
     filename: "style.css"
   }),
