@@ -1,4 +1,6 @@
 const path = require("path");
+const webpack = require("webpack");
+const autoprefixer = require("autoprefixer");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
@@ -12,7 +14,8 @@ const css = {
     {
       loader: MiniCssExtractPlugin.loader
     },
-    "css-loader"
+    "css-loader",
+    "postcss-loader"
   ]
 };
 const less = {
@@ -22,6 +25,7 @@ const less = {
       loader: MiniCssExtractPlugin.loader
     },
     "css-loader",
+    "postcss-loader",
     "less-loader"
   ]
 };
@@ -32,6 +36,7 @@ const scss = {
       loader: MiniCssExtractPlugin.loader
     },
     "css-loader",
+    "postcss-loader",
     "sass-loader"
   ]
 };
@@ -40,7 +45,6 @@ const js = {
   exclude: /node_modules/,
   loader: "babel-loader"
 };
-
 const imgLoader = {
   test: /\.(png|jpg|jpeg|svg|gif)$/,
   use: [
@@ -92,7 +96,12 @@ const plugins = [
   new MiniCssExtractPlugin({
     filename: "style.css"
   }),
-  new CleanWebpackPlugin()
+  new CleanWebpackPlugin(),
+  new webpack.LoaderOptionsPlugin({
+    options: {
+      postcss: [autoprefixer()]
+    }
+  })
 ];
 
 /* devServer */

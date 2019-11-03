@@ -1,17 +1,15 @@
 @import "variables";
 
-.scss {
-  margin-left: 20px;
-  color: $mainColor;
-  font-size: $mainFontSize;
-  //background-image: url("../img/smoke.png");
-  background-repeat: no-repeat;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 10px;
 }
 
-.second {
-  //background-image: url("../img/smoke.png");
-  width: 500px;
-  height: 500px;
-  background-position: center;
-  background-size: 100%;
+ul,
+li,
+a {
+  text-decoration: none;
+  list-style-type: none;
 }
