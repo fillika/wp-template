@@ -1,11 +1,8 @@
 const path = require("path");
-const webpack = require("webpack");
-const autoprefixer = require("autoprefixer");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const allPlugins = require("./src/webpack/wp-plugins/plugins");
 
 /* Modules */
 const css = {
@@ -92,32 +89,8 @@ const modules = {
 };
 
 /* Plugins */
-function createFirstPage(name) {
-  return new HtmlWebpackPlugin({
-    filename: name + ".html",
-    template: "./src/pug/" + name + ".pug"
-  });
-}
-function createNextPage(name) {
-  return new HtmlWebpackPlugin({
-    filename: "pages/" + name + ".html",
-    template: "./src/pug/pages/" + name + ".pug"
-  });
-}
 
-const plugins = [
-  createFirstPage("index"),
-  createNextPage("second"),
-  new MiniCssExtractPlugin({
-    filename: "style.css"
-  }),
-  new CleanWebpackPlugin(),
-  new webpack.LoaderOptionsPlugin({
-    options: {
-      postcss: [autoprefixer()]
-    }
-  })
-];
+const plugins = allPlugins.allPlugins;
 
 /* devServer */
 
