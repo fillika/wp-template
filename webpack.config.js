@@ -88,10 +88,6 @@ const modules = {
   rules: [css, js, less, scss, imgLoader, pug]
 };
 
-/* Plugins */
-
-const plugins = allPlugins.allPlugins;
-
 /* devServer */
 
 const devServer = {
@@ -119,7 +115,7 @@ const config = {
   },
   devServer: devServer,
   optimization: optimization,
-  plugins: plugins,
+  plugins: allPlugins.allPlugins,
   module: modules
 };
 
