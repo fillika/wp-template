@@ -81,9 +81,14 @@ const imgLoader = {
     }
   ]
 };
+const pug = {
+  test: /\.pug$/,
+  exclude: /node_modules/,
+  loader: "pug-loader"
+};
 
 const modules = {
-  rules: [css, js, less, scss, imgLoader]
+  rules: [css, js, less, scss, imgLoader, pug]
 };
 
 /* Plugins */
@@ -91,7 +96,7 @@ const modules = {
 const plugins = [
   new HtmlWebpackPlugin({
     filename: "index.html",
-    template: "./src/index.html"
+    template: "./src/pug/index.pug"
   }),
   new MiniCssExtractPlugin({
     filename: "style.css"
