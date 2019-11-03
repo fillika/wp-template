@@ -98,6 +98,10 @@ const plugins = [
     filename: "index.html",
     template: "./src/pug/index.pug"
   }),
+  new HtmlWebpackPlugin({
+    filename: "pages/second.html",
+    template: "./src/pug/pages/second.pug"
+  }),
   new MiniCssExtractPlugin({
     filename: "style.css"
   }),
