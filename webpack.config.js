@@ -15,17 +15,6 @@ const css = {
     "postcss-loader"
   ]
 };
-const less = {
-  test: /\.less$/,
-  use: [
-    {
-      loader: MiniCssExtractPlugin.loader
-    },
-    "css-loader",
-    "postcss-loader",
-    "less-loader"
-  ]
-};
 const scss = {
   test: /\.s[ac]ss$/i,
   use: [
@@ -85,7 +74,7 @@ const pug = {
 };
 
 const modules = {
-  rules: [css, js, less, scss, imgLoader, pug]
+  rules: [css, js, scss, imgLoader, pug]
 };
 
 /* devServer */

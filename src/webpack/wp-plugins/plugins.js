@@ -5,16 +5,23 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 /* Plugins */
-function createPage(name) {
+function createFromPugPage(name) {
   return new HtmlWebpackPlugin({
     filename: name + ".html",
     template: "./src/pug/pages/" + name + ".pug"
   });
 }
 
+function createHtmlPage() {
+  return new HtmlWebpackPlugin({
+    filename: name + ".html",
+    template: "./src/html/pages/" + name + ".html"
+  });
+}
+
 const allPlugins = [
-	createPage("index"),
-	createPage("second"),
+  createFromPugPage("index"),
+  createFromPugPage("second"),
   new MiniCssExtractPlugin({
     filename: "style.css"
   }),
