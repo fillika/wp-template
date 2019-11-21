@@ -42,6 +42,10 @@ const allPlugins = [
     options: {
       postcss: [autoprefixer()]
     }
+  }),
+  new webpack.ProvidePlugin({
+    $: "jquery",
+    jQuery: "jquery"
   })
 ].concat(htmlPlugins);
 
